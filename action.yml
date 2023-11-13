@@ -1,0 +1,30 @@
+name: "Bump tag version"
+description: "Bumpping tag version"
+author: keepbang
+runs:
+  using: "composite"
+  steps:
+    - id: tag_version
+      run: |
+        wget -O ./semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver
+        chmod +x ./semver
+        chmod +x ./bump.sh
+        ./bump.sh
+      shell: bash
+outputs:
+  new_tag:
+    description: 'Generated tag'
+    value: ${{ steps.tag_version.outputs.new_tag }}
+  tag:
+    description: 'The latest tag after running this action'
+    value: ${{ steps.tag_version.outputs.tag }}
+  part:
+    description: 'The part of version which was bumped'
+    value: ${{ steps.tag_version.outputs.part }}
+  old_tag:
+    description: 'The old of version'
+    value: ${{ steps.tag_version.outputs.old_tag }}
+branding:
+  icon: 'git-merge'  
+  color: 'purple'
+  
