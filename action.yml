@@ -8,8 +8,8 @@ runs:
       run: |
         wget -O ./semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver
         chmod +x ./semver
-        chmod +x ./bump.sh
-        ./bump.sh
+        chmod +x ${{ github.action_path }}/bump.sh
+        ${{ github.action_path }}/bump.sh
       shell: bash
 outputs:
   new_tag:
