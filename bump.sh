@@ -178,6 +178,7 @@ case "$log" in
             exit 0
         else
             echo "default_semvar_bump = ${default_semvar_bump}"
+            echo "tag = ${tag}"
             new=$(./semver bump "${default_semvar_bump}" "$tag")
             part=$default_semvar_bump
         fi
@@ -201,9 +202,9 @@ then
     then
         if $with_v
         then
-            new=v$(./semver bump prerelease "${pre_tag}" --preid "${suffix}")
+            new=v$(./semver bump prerel "${suffix}".. "${pre_tag}")
         else
-            new=$(./semver bump prerelease "${pre_tag}" --preid "${suffix}")
+            new=$(./semver bump prerel "${suffix}".. "${pre_tag}")
         fi
         echo -e "Bumping ${suffix} pre-tag ${pre_tag}. New pre-tag ${new}"
     else
