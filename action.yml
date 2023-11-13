@@ -8,7 +8,6 @@ runs:
       run: |
         wget -O ./semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver
         chmod +x ./semver
-        cat ${{ github.action_path }}/bump.sh
         chmod +x ${{ github.action_path }}/bump.sh
         ${{ github.action_path }}/bump.sh
       shell: bash
