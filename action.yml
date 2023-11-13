@@ -6,9 +6,9 @@ runs:
   steps:
     - id: tag_version
       run: |
-        wget -O ${{ github.action_path }}/semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver
-        chmod +x ${{ github.action_path }}/semver
-        ${{ github.action_path }}/semver -v
+        wget -O ./semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver
+        chmod +x ./semver
+        cat ${{ github.action_path }}/bump.sh
         chmod +x ${{ github.action_path }}/bump.sh
         ${{ github.action_path }}/bump.sh
       shell: bash
