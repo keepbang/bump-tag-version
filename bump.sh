@@ -210,9 +210,9 @@ then
     else
         if $with_v
         then
-            new="v$new-$suffix.0"
+            new="v$new-$suffix.1"
         else
-            new="$new-$suffix.0"
+            new="$new-$suffix.1"
         fi
         echo -e "Setting ${suffix} pre-tag ${pre_tag} - With pre-tag ${new}"
     fi
